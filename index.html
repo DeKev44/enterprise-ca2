@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nature of enterprise CA2</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+  <body class="container">
+    <nav class="navbar bg-body-secondary rounded">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">CA2</a>
+      </div>
+    </nav>
+    <main>
+      <header class="mb-4">
+        <h1 class="display-1">Nature of enterprise CA2</h1>
+        <p class="text-muted">We based this project on FLight Price analysis and predictions. We analysed airline flight data and used statistics and charts to indentify different factors. We used a machine learning to predict flight ticket prices based on trip characteristics</p>
+      </header>
+      <section>
+        <h2>Charts</h2>
+         <div class="row">
+  <div class="col-md-6">
+    <canvas id="horizontalBarChart" height="200"></canvas>
+  </div>
+</div>
+<div class="row mb-4">
+    <div class="col-md-8">
+      <canvas id="chart2" height="200"></canvas>
+    </div>
+  </div>
+<div class="row mb-4">
+    <div class="col-md-8">
+      <canvas id="chart3" height="200"></canvas>
+    </div>
+  </div>
+</section>
+        <section></section>
+      </section>
+      <article class="bg-body-secondary rounded">
+        <pre class="big light mb-5 border rounded"></pre>
+      </article>
+    </main>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    const ctx = document.getElementById("horizontalBarChart");
+
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Bangalore", "Cochin", "New Dehli", "HyderaBad", "Dehli", "Kolkata" ],
+        datasets: [
+          {
+            label: "Duration_min by Destination",
+            data: [812, 780, 618, 206, 169, 137],
+            backgroundColor: ["#0d6efd", "#198754", "#dc3545", "#ffc107"],
+          },
+        ],
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        scales: {
+          x: {
+            beginAtZero: true,
+        },
+        },
+      },
+    });
+
+const ctxDuration = document.getElementById("chart2");
+
+new Chart(ctxDuration, {
+  type: "bar",
+  data: {
+    labels: [
+      "In-flight meal not included", "No info", "No check-in baggage included"],
+    datasets: [
+      {
+        label: "Average Duration (minutes)",
+        data: [899, 572, 137],
+        backgroundColor: "#fd7e14"
+      }
+    ]
+  },
+  options: {
+    indexAxis: "y",
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: "Duration (minutes)"
+        }
+      }
+    }
+  }
+});
+
+
+const ctxPrice = document.getElementById("chart3");
+
+new Chart(ctxPrice, {
+  type: "bar",
+  data: {
+    labels: ["0", "1", "2"],
+    datasets: [
+      {
+        label: "In-flight meal not included",
+        data: [5, 11, 12],
+        backgroundColor: "#0d6efd"
+      },
+      {
+        label: "No check-in baggage included",
+        data: [3, 4, 5],
+        backgroundColor: "#dc3545"
+      },
+      {
+        label: "No info",
+        data: [6, 11, 13],
+        backgroundColor: "#198754"
+      }
+    ]
+  },
+  options: {
+    indexAxis: "y",
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: "Price (Thousands)"
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Number of Stops"
+        }
+      }
+    }
+  }
+});
+</script>
+</html>
